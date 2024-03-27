@@ -9,9 +9,9 @@ function createPromise(delay) {
 }
 
 const promises = [
-    createPromise(2000),
+    createPromise(1200),
     createPromise(1000),
-    createPromise(2580)
+    createPromise(1580)
 ];
 
 Promise.all(promises)
