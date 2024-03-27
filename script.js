@@ -1,6 +1,10 @@
 const tbody = document.getElementById("output");
-const tr=document.getElementById("loading");
-loading.innerHTML = `Loading...`;
+
+tbody.innerHTML = `
+    <tr>
+        <td colspan="2">Loading...</td>
+    </tr>
+`;
 
 function createPromise(delay) {
     return new Promise((resolve, reject) => {
@@ -17,7 +21,7 @@ const promises=[createPromise(2000, "Promise 1"),createPromise(1000, "Promise 2"
 
 Promise.all(promises)
     .then(results => {
-        loading.innerHTML = ""; 
+        tbody.innerHTML = ""; 
         
         results.forEach((time,index) => {
             const row = document.createElement('tr');
