@@ -17,7 +17,7 @@ const promises=[createPromise(2000, "Promise 1"),createPromise(1000, "Promise 2"
 
 Promise.all(promises)
     .then(results => {
-        tbody.innerHTML = ""; 
+        loading.innerHTML = ""; 
         
         results.forEach((time,index) => {
             const row = document.createElement('tr');
