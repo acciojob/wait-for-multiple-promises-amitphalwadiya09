@@ -16,7 +16,8 @@ const promises = [
 
 Promise.all(promises)
     .then(results => {
-        tbody.innerHTML = ""; // Clear the loading row 
+        const loadingRow = document.getElementById("loading");
+        loadingRow.parentNode.removeChild(loadingRow); // Remove the loading row
 
         results.forEach((time, index) => {
             const row = document.createElement('tr');
