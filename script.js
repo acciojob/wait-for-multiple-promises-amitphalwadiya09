@@ -19,20 +19,19 @@ const promises=[createPromise(2000, "Promise 1"),createPromise(1000, "Promise 2"
 
 
 
-Promise.all(promises).then((results)=>{
-    tbody.innerHTML=""
-    results.forEach((time,index)=>{
+Promise.all(promises)
+    .then(results => {
+        tbody.innerHTML = ""; // Clear the loading row
         
-
-        const row = document.createElement('tr');
-        row.innerHTML = `promise ${index+1}`;
-        row.innerHTML = `
+        results.forEach((time,index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
                 <td>Promise ${index + 1}</td>
                 <td>${time}</td>
             `;
             tbody.appendChild(row);
-        // console.log(`promise ${index+1} :${result}`)
+        });
     })
-}).catch(err=>{
-    console.log(err);
-})
+    .catch(err => {
+        console.log(err);
+    });
