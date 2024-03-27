@@ -6,7 +6,7 @@ tbody.innerHTML = `
     </tr>
 `;
 
-function createPromise(delay, name) {
+function createPromise(delay) {
     return new Promise((resolve, reject) => {
 
         setTimeout(() => {
@@ -21,7 +21,7 @@ const promises=[createPromise(2000, "Promise 1"),createPromise(1000, "Promise 2"
 
 Promise.all(promises)
     .then(results => {
-        tbody.innerHTML = ""; // Clear the loading row
+        tbody.innerHTML = ""; 
         
         results.forEach((time,index) => {
             const row = document.createElement('tr');
@@ -31,6 +31,18 @@ Promise.all(promises)
             `;
             tbody.appendChild(row);
         });
+        let totalTime = 0;
+        for(let i=0;i<results.length;i++)
+        {
+            totalTime=totalTime+parseFloat(results[i]);
+        }
+
+        const totalRow = document.createElement('tr');
+        totalRow.innerHTML = `
+            <td>Total</td>
+            <td>${totalTime}</td>
+        `;
+        tbody.appendChild(totalRow);
     })
     .catch(err => {
         console.log(err);
