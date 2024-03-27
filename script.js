@@ -8,16 +8,12 @@ function createPromise(delay) {
     });
 }
 
-const promises = [
-    createPromise(1200),
-    createPromise(1000),
-    createPromise(1580)
-];
+const promises = [createPromise(1200),createPromise(1000),createPromise(1580)];
 
 Promise.all(promises)
     .then(results => {
         const loadingRow = document.getElementById("loading");
-        loadingRow.parentNode.removeChild(loadingRow); // Remove the loading row
+        loadingRow.parentNode.removeChild(loadingRow);
 
         results.forEach((time, index) => {
             const row = document.createElement('tr');
