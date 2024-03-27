@@ -1,6 +1,6 @@
 const tbody = document.getElementById("output");
 
-tbody.innerHTML = `
+tbody.innerHTML.class = `
     <tr>
         <td colspan="2">Loading...</td>
     </tr>
