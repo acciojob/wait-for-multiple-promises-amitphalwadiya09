@@ -1,10 +1,6 @@
 const tbody = document.getElementById("output");
-
-tbody.innerHTML.class = `
-    <tr>
-        <td colspan="2">Loading...</td>
-    </tr>
-`;
+const tr=document.getElementById("loading");
+loading.innerHTML = `Loading...`;
 
 function createPromise(delay) {
     return new Promise((resolve, reject) => {
